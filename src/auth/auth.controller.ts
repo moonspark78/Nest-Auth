@@ -5,4 +5,10 @@ import { AuthService } from './auth.service';
 export class AuthController {
   constructor(private readonly authService: AuthService) {}
 
+  //TODO: POST /auth/register ------> Signup
+
+  //TODO: POST /auth/login ------> Signin
+
+  //TODO: POST Refresh Token 
+
 }
