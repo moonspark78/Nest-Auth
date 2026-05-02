@@ -68,4 +68,6 @@
     "coverageDirectory": "../coverage",
     "testEnvironment": "node"
   }
+
+  // "eslintConfig": {}
 }
