@@ -6,6 +6,8 @@ export class AuthController {
   constructor(private readonly authService: AuthService) {}
 
   //TODO: POST /auth/register ------> Signup
+  @Post('signup') //auth/signup
+  async signup(@Body() signupData: SignupDto) {}
 
   //TODO: POST /auth/login ------> Signin
 
