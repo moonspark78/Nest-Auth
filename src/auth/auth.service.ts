@@ -21,6 +21,9 @@ export class AuthService {
     //TODO: Hash the password
     const hashedPassword = await bcrypt.hash(password, 10);
     //TODO: Create the user in the database
-    await this.UserModel.create({});
+    await this.UserModel.create({
+      name,
+      email,
+    });
   }
 }
