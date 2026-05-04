@@ -24,6 +24,7 @@ export class AuthService {
     await this.UserModel.create({
       name,
       email,
+      password: hashedPassword,
     });
   }
 }
