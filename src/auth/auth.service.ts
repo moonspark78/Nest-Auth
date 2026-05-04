@@ -9,7 +9,8 @@ import { User } from '../schemas/user.schema';
 export class AuthService {
   constructor(@InjectModel(User.name) private UserModel: Model<User>) {}
   async signup(signupData: SignupDto) {
-    //TODO: Check if email is in useContainer
+    //TODO: Check if email is in use
+    const emailInUse = await this.UserModel.findOne({ email: signupData.email });
     //TODO: Hash the password
     //TODO: Create the user in the database
   }
