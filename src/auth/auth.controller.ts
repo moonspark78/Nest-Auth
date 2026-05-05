@@ -8,7 +8,9 @@ export class AuthController {
 
   //TODO: POST /auth/register ------> Signup
   @Post('signup') //auth/signup
-  async signup(@Body() signupData: SignupDto) {}
+  async signup(@Body() signupData: SignupDto) {
+    return this.authService.signup(signupData);
+  }
 
   //TODO: POST /auth/login ------> Signin
 
