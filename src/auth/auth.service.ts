@@ -4,6 +4,7 @@ import { InjectModel } from '@nestjs/mongoose';
 import  { Model } from 'mongoose';
 import { User } from '../schemas/user.schema';
 import * as bcrypt from 'bcrypt';
+import type { LoginDto } from './dto/login.dto';
 
 
 @Injectable()
@@ -27,4 +28,6 @@ export class AuthService {
       password: hashedPassword,
     });
   }
+
+  async login(credentials: LoginDto) {}
 }
