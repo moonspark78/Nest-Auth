@@ -29,5 +29,9 @@ export class AuthService {
     });
   }
 
-  async login(credentials: LoginDto) {}
+  async login(credentials: LoginDto) {
+    //Find if user exists by email
+    //TODO: Compare entered password with existing password
+    //TODO: Generate JWT token and return it
+  }
 }
