@@ -30,6 +30,7 @@ export class AuthService {
   }
 
   async login(credentials: LoginDto) {
+    const { email, password } = credentials;
     //Find if user exists by email
     //TODO: Compare entered password with existing password
     //TODO: Generate JWT token and return it
