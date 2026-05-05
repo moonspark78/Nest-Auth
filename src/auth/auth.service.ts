@@ -37,6 +37,10 @@ export class AuthService {
       throw new UnauthorizedException('Invalid credentials');
     }
     //TODO: Compare entered password with existing password
+    const passwordMatch = await bcrypt.compare(password, user.password);
+    if (!passwordMatch) {
+      throw new UnauthorizedException('Invalid credentials');
+    }
     //TODO: Generate JWT token and return it
   }
 }
