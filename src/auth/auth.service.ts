@@ -42,5 +42,8 @@ export class AuthService {
       throw new UnauthorizedException('Invalid credentials');
     }
     //TODO: Generate JWT token and return it
+      return {
+        message: 'Login successful',
+      };
   }
 }
