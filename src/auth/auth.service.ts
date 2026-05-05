@@ -1,4 +1,4 @@
-import { BadRequestException, Injectable } from '@nestjs/common';
+import { BadRequestException, Injectable, UnauthorizedException } from '@nestjs/common';
 import  { SignupDto } from './dto/signup.dto';
 import { InjectModel } from '@nestjs/mongoose';
 import  { Model } from 'mongoose';
@@ -32,6 +32,10 @@ export class AuthService {
   async login(credentials: LoginDto) {
     const { email, password } = credentials;
     //Find if user exists by email
+    const user = await this.UserModel.findOne({ email });
+    if (!user) {
+      throw new UnauthorizedException('Invalid credentials');
+    }
     //TODO: Compare entered password with existing password
     //TODO: Generate JWT token and return it
   }
