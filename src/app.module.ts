@@ -6,21 +6,24 @@ import { MongooseModule } from '@nestjs/mongoose';
 import { JwtModule } from '@nestjs/jwt';
 import { ConfigModule } from '@nestjs/config';
 import config from './config/config';
+import { ConfigService } from '@nestjs/config';
 @Module({
   imports: [
     ConfigModule.forRoot({
       isGlobal: true,
       cache: true,
-      load: [config]
+      load: [config],
     }),
-    JwtModule.register({
+    JwtModule.registerAsync({
       imports: [ConfigModule],
-      useFactory: async (config) => ({
-        
-      })
+      useFactory: async (configService: ConfigService) => ({
+        secret: configService.get('jwtSecret'),
+        signOptions: { expiresIn: '1h' },
+      }),
+      inject: [ConfigService],
     }),
     MongooseModule.forRoot('mongodb://localhost:27017/nestjs-auth'),
-    AuthModule
+    AuthModule,
   ],
   controllers: [AppController],
   providers: [AppService],
