@@ -13,7 +13,12 @@ import config from './config/config';
       cache: true,
       load: [config]
     }),
-    JwtModule.register({ global: true, secret: 'your-secret-key' }),
+    JwtModule.register({
+      imports: [ConfigModule],
+      useFactory: async (config) => ({
+        
+      })
+    }),
     MongooseModule.forRoot('mongodb://localhost:27017/nestjs-auth'),
     AuthModule
   ],
