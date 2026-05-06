@@ -5,12 +5,14 @@ import { AuthModule } from './auth/auth.module';
 import { MongooseModule } from '@nestjs/mongoose';
 import { JwtModule } from '@nestjs/jwt';
 import { ConfigModule } from '@nestjs/config';
+import config from './config/config';
 
 @Module({
   imports: [
     ConfigModule.forRoot({
       isGlobal: true,
       cache: true,
+      load: [config]
     }),
     JwtModule.register({ global: true, secret: 'your-secret-key' }),
     MongooseModule.forRoot('mongodb://localhost:27017/nestjs-auth'),
