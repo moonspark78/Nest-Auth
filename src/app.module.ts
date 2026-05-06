@@ -6,7 +6,11 @@ import { MongooseModule } from '@nestjs/mongoose';
 import { JwtModule } from '@nestjs/jwt';
 
 @Module({
-  imports: [JwtModule.register({ global: true, secret: 'your-secret-key' }), MongooseModule.forRoot('mongodb://localhost:27017/nestjs-auth'), AuthModule],
+  imports: [
+    JwtModule.register({ global: true, secret: 'your-secret-key' }),
+    MongooseModule.forRoot('mongodb://localhost:27017/nestjs-auth'),
+    AuthModule
+  ],
   controllers: [AppController],
   providers: [AppService],
 })
