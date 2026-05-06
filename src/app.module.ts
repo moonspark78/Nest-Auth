@@ -6,7 +6,6 @@ import { MongooseModule } from '@nestjs/mongoose';
 import { JwtModule } from '@nestjs/jwt';
 import { ConfigModule } from '@nestjs/config';
 import config from './config/config';
-
 @Module({
   imports: [
     ConfigModule.forRoot({
