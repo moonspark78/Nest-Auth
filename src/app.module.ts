@@ -9,7 +9,8 @@ import { ConfigModule } from '@nestjs/config';
 @Module({
   imports: [
     ConfigModule.forRoot({
-      isGlobal: true 
+      isGlobal: true,
+      cache: true,
     }),
     JwtModule.register({ global: true, secret: 'your-secret-key' }),
     MongooseModule.forRoot('mongodb://localhost:27017/nestjs-auth'),
