@@ -22,7 +22,11 @@ import { ConfigService } from '@nestjs/config';
       }),
       inject: [ConfigService],
     }),
-    MongooseModule.forRoot('mongodb://localhost:27017/nestjs-auth'),
+    MongooseModule.forRoot({
+      imports: [ConfigModule],
+      
+
+    }),
     AuthModule,
   ],
   controllers: [AppController],
