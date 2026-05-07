@@ -49,4 +49,8 @@ export class AuthService {
         message: 'Login successful',
       };
   }
+
+  async generateUserToken(userId) {
+    const accessToken = this.jwtService.sign({ userId }, { expiresIn: '1h' });
+  }
 }
