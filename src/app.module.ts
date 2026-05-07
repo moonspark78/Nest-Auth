@@ -22,10 +22,12 @@ import { ConfigService } from '@nestjs/config';
       }),
       inject: [ConfigService],
     }),
-    MongooseModule.forRoot({
-      imports: [ConfigModule],
-      
-
+    MongooseModule.forRootAsync({
+      imports: [ConfigModule], 
+      useFactory: async (config) => ({
+        uri: config.get('database.connectionString'),
+      }),
+      inject: [ConfigService],
     }),
     AuthModule,
   ],
