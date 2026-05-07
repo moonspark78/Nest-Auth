@@ -5,11 +5,14 @@ import  { Model } from 'mongoose';
 import { User } from '../schemas/user.schema';
 import * as bcrypt from 'bcrypt';
 import type { LoginDto } from './dto/login.dto';
+import type { JwtService } from '@nestjs/jwt';
 
 
 @Injectable()
 export class AuthService {
-  constructor(@InjectModel(User.name) private UserModel: Model<User>) {}
+  constructor(@InjectModel(User.name) private UserModel: Model<User>,
+  private jwtService: JwtService
+) {}
   async signup(signupData: SignupDto) {
     const { email, password, name } = signupData;
     //TODO: Check if email is in use
