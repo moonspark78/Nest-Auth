@@ -65,6 +65,12 @@ export class AuthService {
     //Calculate expiry date 3 days from now
     const expiryDate = new Date();
     expiryDate.setDate(expiryDate.getDate() + 3);
+
+    await this.RefreshTokenModel.create({
+      userId,
+      token,
+      expiryDate
+    });
   }
 }
 
