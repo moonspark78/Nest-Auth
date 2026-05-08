@@ -4,9 +4,9 @@ import { InjectModel } from '@nestjs/mongoose';
 import  { Model } from 'mongoose';
 import { User } from '../schemas/user.schema';
 import * as bcrypt from 'bcrypt';
-import type { LoginDto } from './dto/login.dto';
-import type { JwtService } from '@nestjs/jwt';
-import type { RefreshToken } from '../schemas/refresh-token.schema';
+import { LoginDto } from './dto/login.dto';
+import { JwtService } from '@nestjs/jwt';
+import { RefreshToken } from '../schemas/refresh-token.schema';
 
 
 @Injectable()
