@@ -7,6 +7,7 @@ import * as bcrypt from 'bcrypt';
 import { LoginDto } from './dto/login.dto';
 import { JwtService } from '@nestjs/jwt';
 import { RefreshToken } from '../schemas/refresh-token.schema';
+import { v4 as uuidv4 } from 'uuid';
 
 
 @Injectable()
@@ -53,6 +54,8 @@ export class AuthService {
 
   async generateUserToken(userId) {
     const accessToken = this.jwtService.sign({ userId }, { expiresIn: '1h' });
+    const refreshToken = uuidv4(); 
     return accessToken;
   }
 }
+
