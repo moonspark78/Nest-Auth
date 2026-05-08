@@ -6,12 +6,14 @@ import { User } from '../schemas/user.schema';
 import * as bcrypt from 'bcrypt';
 import type { LoginDto } from './dto/login.dto';
 import type { JwtService } from '@nestjs/jwt';
+import type { RefreshToken } from '../schemas/refresh-token.schema';
 
 
 @Injectable()
 export class AuthService {
   constructor(
     @InjectModel(User.name) private UserModel: Model<User>,
+    @InjectModel(RefreshToken.name) private RefreshTokenModel: Model<RefreshToken>, 
   private jwtService: JwtService
 ) {}
   async signup(signupData: SignupDto) {
