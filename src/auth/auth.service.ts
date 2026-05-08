@@ -63,6 +63,7 @@ export class AuthService {
 
   async storeRefreshToken(userId, token: string) {
     //Calculate expiry date 3 days from now
+    const expiryDate = new Date();
   }
 }
 
