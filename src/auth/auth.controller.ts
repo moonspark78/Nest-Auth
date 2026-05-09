@@ -2,6 +2,7 @@ import { Controller, Get, Post, Body, Patch, Param, Delete } from '@nestjs/commo
 import { AuthService } from './auth.service';
 import type { SignupDto } from './dto/signup.dto';
 import type { LoginDto } from './dto/login.dto';
+import type { RefreshTokenDto } from './dto/refresh-tokens.dto';
 
 @Controller('auth')
 export class AuthController {
