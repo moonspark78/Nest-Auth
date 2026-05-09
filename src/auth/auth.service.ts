@@ -52,7 +52,9 @@ export class AuthService {
       return this.generateUserToken(user._id);
   }
 
-  async refreshTokens(refreshToken: string) {}
+  async refreshTokens(refreshToken: string) {
+    const token = await this.RefreshTokenModel.findOne({});
+  }
 
   async generateUserToken(userId) {
     const accessToken = this.jwtService.sign({ userId }, { expiresIn: '1h' });
