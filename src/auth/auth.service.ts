@@ -61,6 +61,8 @@ export class AuthService {
     if (!token) {
       throw new UnauthorizedException();
     }
+
+    return this.generateUserToken(token.userId);
   }
 
   async generateUserToken(userId) {
