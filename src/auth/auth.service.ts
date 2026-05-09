@@ -57,6 +57,10 @@ export class AuthService {
       token: refreshToken,
       expiryDate: { $gt: new Date() },
     });
+
+    if (!token) {
+      throw new UnauthorizedException();
+    }
   }
 
   async generateUserToken(userId) {
