@@ -9,5 +9,9 @@ export class AuthGuard implements CanActivate {
         context: ExecutionContext,
     ): boolean | Promise<boolean> | Observable<boolean> {
         const request: Request = context.switchToHttp().getRequest();
+        const token = this.extractTokenFromHeader(request);
+    }
+    private extractTokenFromHeader(request: Request) {
+        throw new Error("Method not implemented.");
     }
 }
