@@ -1,4 +1,11 @@
-import { Injectable, type CanActivate } from "@nestjs/common";
+import { Injectable, type CanActivate, type ExecutionContext } from "@nestjs/common";
+import type { Observable } from "rxjs";
 
 @Injectable()
-export class AuthGuard implements CanActivate {}
+export class AuthGuard implements CanActivate {
+    canActivate(
+        context: ExecutionContext,
+    ): boolean | Promise<boolean> | Observable<boolean> {
+        
+    }
+}
