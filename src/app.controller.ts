@@ -7,6 +7,6 @@ export class AppController {
 
   @Get()
   someProtectedRoute() {
-    return this.appService.getHello();
+    return { message: "Accessed Ressouce" };
   }
 }
