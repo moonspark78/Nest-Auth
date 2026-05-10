@@ -59,7 +59,7 @@ export class AuthService {
     });
 
     if (!token) {
-      throw new UnauthorizedException();
+      throw new UnauthorizedException("Invalid or expired refresh token");
     }
 
     return this.generateUserToken(token.userId);
