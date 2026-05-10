@@ -49,7 +49,7 @@ export class AuthService {
       throw new UnauthorizedException('Invalid credentials');
     }
     //TODO: Generate JWT token and return it
-      return this.generateUserToken(user._id);
+      const token = await this.generateUserToken(user._id);
   }
 
   async refreshTokens(refreshToken: string) {
