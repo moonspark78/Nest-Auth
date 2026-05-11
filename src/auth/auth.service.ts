@@ -57,7 +57,7 @@ export class AuthService {
   }
 
   async refreshTokens(refreshToken: string) {
-    const token = await this.RefreshTokenModel.findOneAndDelete({
+    const token = await this.RefreshTokenModel.findOne({
       token: refreshToken,
       expiryDate: { $gt: new Date() },
     });
