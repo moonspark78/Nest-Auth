@@ -9,7 +9,7 @@ export class AuthGuard implements CanActivate {
     canActivate(
         context: ExecutionContext,
     ): boolean | Promise<boolean> | Observable<boolean> {
-        const request: Request = context.switchToHttp().getRequest();
+        const request = context.switchToHttp().getRequest();
         const token = this.extractTokenFromHeader(request);
 
         if (!token) {
@@ -17,6 +17,7 @@ export class AuthGuard implements CanActivate {
         }
         try {
             const payload = this.JwtService.verify(token);
+            request.userId = payload.userId;
         } catch (e) {
             throw new UnauthorizedException("Invalid token");
         }
