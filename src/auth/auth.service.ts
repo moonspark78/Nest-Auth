@@ -84,11 +84,11 @@ export class AuthService {
     const expiryDate = new Date();
     expiryDate.setDate(expiryDate.getDate() + 3);
 
-    await this.RefreshTokenModel.create({
+    await this.RefreshTokenModel.updateOne({
       userId,
       token,
       expiryDate
-    });
+    }, { upsert: true });
   }
 }
 
